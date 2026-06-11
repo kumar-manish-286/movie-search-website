@@ -1,0 +1,63 @@
+/* ==========================================
+    Media Query for Tablets (Max-width: 768px)
+   ========================================== */
+
+@media (max-width: 768px) {
+  .card {
+    padding: 20px; 
+  }
+
+  header {
+    flex-direction: column; 
+
+    text-align: center;
+    gap: 12px;
+  }
+
+  /* Desktop */
+
+
+  .search-panel .row {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /*  mobile */
+
+
+  .search-panel input, 
+  .search-panel select, 
+  #searchBtn {
+    width: 100%;
+    box-sizing: border-box; 
+    flex: none; 
+  }
+}
+
+
+/* ==========================================
+   Media Query for Small Mobiles (Max-width: 480px)
+   ========================================== */
+
+@media (max-width: 480px) {
+  #title {
+    font-size: 1.8rem; 
+  }
+
+  .lead {
+    font-size: 0.95rem;
+  }
+
+  /* Pagination buttons  */
+
+
+  .pagination {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .pagination button {
+    width: 100%; 
+  }
+}
