@@ -1,63 +1,231 @@
-/* ==========================================
-    Media Query for Tablets (Max-width: 768px)
-   ========================================== */
-
-@media (max-width: 768px) {
-  .card {
-    padding: 20px; 
+@media (max-width: 1050px) {
+  .site-header,
+  main,
+  .site-footer {
+    width: min(100% - 48px, 1320px);
   }
 
-  header {
-    flex-direction: column; 
-
-    text-align: center;
-    gap: 12px;
+  .hero {
+    min-height: 520px;
   }
 
-  /* Desktop */
-
-
-  .search-panel .row {
-    flex-direction: column;
-    gap: 12px;
+  .hero-copy,
+  .hero-visual {
+    min-height: 520px;
   }
 
-  /*  mobile */
+  .hero-copy {
+    padding-left: 7%;
+    padding-right: 28px;
+  }
 
+  .search-section {
+    grid-template-columns: 0.65fr 1.6fr;
+    gap: 40px;
+    padding-inline: 4%;
+  }
 
-  .search-panel input, 
-  .search-panel select, 
-  #searchBtn {
-    width: 100%;
-    box-sizing: border-box; 
-    flex: none; 
+  .search-panel {
+    grid-template-columns: minmax(170px, 1.5fr) minmax(110px, 0.8fr);
+  }
+
+  .field-year,
+  .search-panel .btn {
+    grid-row: 2;
+  }
+
+  .results-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 
+@media (max-width: 720px) {
+  .site-header,
+  main,
+  .site-footer {
+    width: calc(100% - 36px);
+  }
 
-/* ==========================================
-   Media Query for Small Mobiles (Max-width: 480px)
-   ========================================== */
+  .site-header {
+    height: 70px;
+  }
+
+  .top-nav {
+    display: none;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    margin-top: 12px;
+  }
+
+  .hero-copy {
+    min-height: 480px;
+    padding: 62px 8% 90px;
+  }
+
+  h1 {
+    font-size: clamp(46px, 10vw, 68px);
+  }
+
+  .hero-visual {
+    min-height: 360px;
+  }
+
+  .visual-caption {
+    bottom: 35px;
+    left: 28px;
+  }
+
+  .film-stamp {
+    top: 25%;
+    right: 8%;
+  }
+
+  .hero-note {
+    left: 8%;
+    bottom: 28px;
+  }
+
+  .search-section {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 72px 0;
+  }
+
+  .search-content {
+    padding-top: 0;
+  }
+
+  .search-panel {
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .field-query {
+    grid-column: 1 / -1;
+  }
+
+  .field-year,
+  .search-panel .btn {
+    grid-row: auto;
+  }
+
+  .search-panel .btn {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .collection-section {
+    padding: 62px 0 76px;
+  }
+
+  .results-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .card-item {
+    padding: 6px 6px 11px;
+  }
+
+  .title {
+    margin-top: 10px;
+    font-size: 12px;
+  }
+}
 
 @media (max-width: 480px) {
-  #title {
-    font-size: 1.8rem; 
+  .header-link {
+    font-size: 11px;
+  }
+
+  .brand {
+    gap: 7px;
+    font-size: 18px;
+  }
+
+  .brand-mark {
+    width: 29px;
+    height: 29px;
+  }
+
+  .hero-copy {
+    min-height: 430px;
+    padding-inline: 23px;
+  }
+
+  .hero-copy .eyebrow {
+    max-width: 240px;
+    font-size: 9px;
   }
 
   .lead {
-    font-size: 0.95rem;
+    max-width: 330px;
+    font-size: 14px;
   }
 
-  /* Pagination buttons  */
+  .hero-visual {
+    min-height: 290px;
+  }
 
+  .hero-edge {
+    max-width: 78%;
+    font-size: 7px;
+  }
+
+  .film-stamp {
+    width: 84px;
+    height: 84px;
+    font-size: 7px;
+  }
+
+  .search-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .field-query {
+    grid-column: auto;
+  }
+
+  .collection-heading {
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .collection-heading h2,
+  h2 {
+    font-size: 29px;
+  }
 
   .pagination {
-    flex-direction: column;
-    gap: 15px;
-    text-align: center;
+    gap: 5px;
+    padding-top: 28px;
   }
 
-  .pagination button {
-    width: 100%; 
+  .pagination .muted {
+    display: none;
+  }
+
+  .page-btn {
+    width: 34px;
+    height: 34px;
+  }
+
+  .results-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .site-footer {
+    min-height: 82px;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-block: 17px;
+  }
+
+  .site-footer > span {
+    order: 1;
+    width: 100%;
   }
 }
