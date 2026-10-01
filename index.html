@@ -2,53 +2,88 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Movie Search Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f3f5f1" />
+  <title>Reel Finder | Find your next favorite film</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="Mediaquery.css">
+  <link rel="stylesheet" href="Mediaquery.css">
 </head>
 <body>
-  <main class="card" role="main" aria-labelledby="title">
-    <header>
-      <div class="logo">MS</div>
-      <div>
-        <h1 id="title">Movie Search Website</h1>
-        <p class="lead">Search movies using the OMDb API. Built with async/await and fetch.</p>
-      </div>
-    </header>
-
-    <section class="search-panel">
-      <div class="row">
-        <input id="query" type="search" placeholder="Search movies, e.g. The Matrix" autocomplete="off" />
-        <select id="type">
-          <option value="">All</option>
-          <option value="movie">Movie</option>
-          <option value="series">Series</option>
-          <option value="episode">Episode</option>
-        </select>
-        <input id="year" type="number" placeholder="Year (optional)" min="1888" max="2100" />
-        <button id="searchBtn" class="btn">Search</button>
-      </div>
-      <div class="meta-row">
-        <div id="status" class="muted">Enter a title to begin.</div>
-      </div>
-    </section>
-
-    <section id="results" class="results-grid" aria-live="polite">
-      <!-- results inserted here -->
-    </section>
-
-    <nav class="pagination" aria-label="Search results pagination">
-      <button id="prevBtn" class="btn secondary" disabled>Prev</button>
-      <div id="pageInfo" class="muted">Page 0 of 0</div>
-      <button id="nextBtn" class="btn secondary" disabled>Next</button>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Reel Finder home">
+      <span class="brand-mark" aria-hidden="true">R</span>
+      <span>reel<span class="brand-light">finder</span></span>
+    </a>
+    <nav class="top-nav" aria-label="Main navigation">
+      <a href="#search">Discover</a>
+      <a href="#results-heading">Browse films</a>
     </nav>
+    <a class="header-link" href="#search">Find a film <span aria-hidden="true">&#8599;</span></a>
+  </header>
 
-    <details style="margin-top:14px">
-      <summary>How it works (short)</summary>
-      <p class="small">JS calls OMDb search endpoint with query and optional filters. Responses include up to 10 results per page; use the `page` parameter to paginate. Replace `YOUR_OMDB_API_KEY` in `script.js` with your key from the OMDb site. See the OMDb docs for full parameter list. :contentReference[oaicite:3]{index=3}</p>
-    </details>
+  <main id="top">
+    <section class="hero" aria-labelledby="title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> Your next movie night starts here</p>
+        <h1 id="title">Find a film<br>worth <span>staying in for.</span></h1>
+        <p class="lead">The right story is out there. Search the film archive and find the one you’ll be thinking about tomorrow.</p>
+        <a class="hero-cta" href="#search">Explore the collection <span aria-hidden="true">&#8595;</span></a>
+        <div class="hero-note"><span class="note-rule"></span><span>Movies, series &amp; hidden gems</span></div>
+      </div>
+      <div class="hero-visual" aria-label="A cinema ready for movie night">
+        <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1400&q=85" alt="Rows of seats in a warmly lit cinema" />
+        <div class="visual-shade"></div>
+        <div class="visual-caption"><span class="caption-kicker">THE NIGHT IS YOURS</span><span class="caption-title">Press play<br>on something new.</span></div>
+        <div class="visual-index"><span>01</span><span class="index-line"></span><span>03</span></div>
+        <span class="film-stamp" aria-hidden="true">GOOD<br>STORIES<br>LIVE HERE</span>
+      </div>
+      <div class="hero-edge" aria-hidden="true">A LITTLE LESS SCROLLING. A LOT MORE CINEMA.</div>
+    </section>
+
+    <section class="search-section" id="search" aria-labelledby="search-heading">
+      <div class="section-intro">
+        <p class="eyebrow eyebrow-dark">THE MOVIE INDEX <span class="section-number">/ 01</span></p>
+        <h2 id="search-heading">What are you<br>in the mood for?</h2>
+      </div>
+      <div class="search-content">
+        <form class="search-panel" role="search" onsubmit="return false">
+          <label class="field field-query"><span>Movie or show title</span><input id="query" type="search" placeholder="Try The Grand Budapest Hotel" autocomplete="off" /></label>
+          <label class="field"><span>Format</span><select id="type">
+            <option value="">Everything</option>
+            <option value="movie">Movies</option>
+            <option value="series">Series</option>
+            <option value="episode">Episodes</option>
+          </select></label>
+          <label class="field field-year"><span>Release year</span><input id="year" type="number" placeholder="Any year" min="1888" max="2100" /></label>
+          <button id="searchBtn" class="btn" type="submit"><span>Search titles</span><span class="button-arrow" aria-hidden="true">&#8594;</span></button>
+        </form>
+        <div class="search-meta"><div id="status" class="muted" aria-live="polite"></div><span class="meta-aside">Powered by OMDb</span></div>
+      </div>
+    </section>
+
+    <section class="film-ribbon" aria-label="Movie night inspiration">
+      <div class="ribbon-track" aria-hidden="true">
+        <span>MAKE IT A MOVIE NIGHT</span><i></i><span>FIND YOUR NEXT FAVORITE</span><i></i><span>GOOD STORIES LIVE HERE</span><i></i><span>MAKE IT A MOVIE NIGHT</span><i></i><span>FIND YOUR NEXT FAVORITE</span><i></i><span>GOOD STORIES LIVE HERE</span><i></i>
+      </div>
+    </section>
+
+    <section class="collection-section" aria-labelledby="results-heading">
+      <div class="collection-heading">
+        <div><p class="eyebrow eyebrow-dark">YOUR SHORTLIST <span class="section-number">/ 02</span></p><h2 id="results-heading">On the marquee</h2></div>
+        <nav class="pagination" aria-label="Search results pagination">
+          <div id="pageInfo" class="muted">Page 0 of 0</div>
+          <button id="prevBtn" class="page-btn" aria-label="Previous page" disabled>&#8592;</button>
+          <button id="nextBtn" class="page-btn" aria-label="Next page" disabled>&#8594;</button>
+        </nav>
+      </div>
+      <section id="results" class="results-grid" aria-live="polite" aria-label="Movie search results"></section>
+    </section>
   </main>
+
+  <footer class="site-footer"><a class="brand footer-brand" href="#top"><span class="brand-mark" aria-hidden="true">R</span><span>reel<span class="brand-light">finder</span></span></a><span>Made for the love of a good story.</span><a href="#top" class="back-top">Back to top <span aria-hidden="true">&#8593;</span></a></footer>
 
   <script src="script.js"></script>
 </body>
